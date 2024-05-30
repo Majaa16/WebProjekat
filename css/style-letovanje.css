@@ -1,0 +1,23 @@
+ul div#prva {
+	position: absolute;
+	top: 30%;
+	left: 27%;
+}
+
+ul div#druga {
+	position: absolute;
+	top: 30%;
+	right: 20%;
+}
+
+ul div#treca {
+	position: absolute;
+	bottom:1%;
+	left: 20%;
+}
+
+ul div#cetvrta {
+	position: absolute;
+	bottom: 1%;
+	right: 27%;
+}

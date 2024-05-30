@@ -1,0 +1,8 @@
+div#onama {
+	margin-top: 80px;
+}
+
+div#onama span{
+	text-decoration: underline;
+	font-style: italic;
+}

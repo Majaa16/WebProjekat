@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Turistička agencija "Roda Travel"</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/glavni.js"></script>
+    <style>
+        select {
+            width: 51%;
+            padding: 16px 20px;
+            border: 1px;
+            border-radius: 4px;
+            background-color: #fefefe;
+            color: blue;
+            margin-left: 25%;
+            margin-top: 20px;
+        }
+        tr:hover {background-color: rgb(6, 95, 248);}
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="meni">
+        <a href="onama.html"><span>O nama</span></a>
+        <a href="letovanja.html"><span>Letovanja</span></a>
+        <a href="zimovanja.html"><span>Zimovanja</span></a>
+        <a href="prijava.html"><span>Prijava</span></a>
+        <a href="kontakt.html"><span>Kontakt</span></a>
+        <a href="login.html"><span>Log in</span></a>
+    </div>
+    <h1>Kalitea</h1>
+    <p>Tražite pogled na tirkizno more sa uzvišenja? Kalitea je onda upravo pravo mesto za Vaš odmor! Udaljenost ovog mesta od Soluna iznosi čak 90km, dok je udaljenost od Poligirosa koji predstavlja administrativni centar Kasandre samo 50km. Ovo je jedno malo mesto koje van sezone ima nesto vise od 400 stanovnika.</p>
+    <p>Ovo mesto okruženo je šumom što još više daje na značaju kako izgledu mora tako i hladovini na samoj plaži koja posle podne jako znači, kao i svežem vazduhu koji je u ovom mestu neverovatan. Kalitea je građena tako da privuče sve ljude nezavisno od starosne populacije, te su za mladje generacije klubovi i kafići, kao i dobre žurke glavna oznaka Kalitee.</p>
+    <p>Osim samouslužnih prodavnica, kojih ima jako mnogo, ovo mesto takođe raspolaže i sa velikim brojem poslastičarnica i restorana.</p>
+    <p>U odnosu na glavni put koji spaja dalja mesta Kasandre postoji nekoliko paralelnih ulica koje predstavljaju pešačku zonu grada i ispunjene su raznim velikim prodavnicama sa uličnim tezgama na kojima se može naći raznoliki asortiman ponude.</p>
+    <div>
+        <form>
+            <p style="font-weight: bold; text-decoration: underline;"> Udaljenost smeštaja u odnosu na plažu:</p>
+            <select name="udaljenost">
+                <option selected>Sve</option>
+                <option>Odmah do plaze</option>
+                <option>Do 50m udaljenosti</option>
+                <option>Do 100m udaljenosti</option>
+                <option>Do 200m udaljenosti</option>
+            </select><br> 
+            <br>
+            <p style="font-style: italic; text-decoration: underline;">Lokacija i dodatne specifikacije smeštaja:</p>
+            <p><span class="checkbox"> U centru </span> <input type="checkbox"></p>
+            <p><span class="checkbox"> Sa bazenom </span> <input type="checkbox"></p>
+            <p style="font-weight: bold; text-decoration: underline;">Cene smeštaja u odnosu na broj osoba:</p>
+            <table border="1">
+                <tr>
+                    <th colspan="4" rowspan="2">Datumi</th>
+                    <th colspan="4">Struktura</th>
+                </tr>
+                <tr>
+                    <th>1/2</th>
+                    <th>1/3</th>
+                    <th>1/4</th>
+                    <th>1/5</th>
+                </tr>
+                <tr>
+                    <th colspan="4">31.05. - 05.06.</th>
+                    <td>198e</td>
+                    <td>188e</td>
+                    <td>178e</td>
+                    <td>168e</td>
+                </tr>
+                <tr>
+                    <th colspan="4">07.06. - 12.06.</th>
+                    <td>205e</td>
+                    <td>195e</td>
+                    <td>185e</td>
+                    <td>175e</td>
+                </tr>
+                <tr>
+                    <th colspan="4">14.06. - 19.06.</th>
+                    <td>215e</td>
+                    <td>205e</td>
+                    <td>195e</td>
+                    <td>185e</td>
+                </tr>
+            </table>
+            <br>
+            <span class="dugme"><input type="submit" value="Prikaži"></span>
+        </form>
+    </div>
+</body>
+</html>

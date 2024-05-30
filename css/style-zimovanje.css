@@ -1,0 +1,69 @@
+div#slike3 {
+	margin-left: 10%;
+	margin-top: 25px;
+	padding-right: 20px;
+	position: relative;
+}
+
+div.galerija {
+	border: 3px solid #ccc;
+	float: left;
+	width: 400px;
+}
+
+div.galerija:hover {
+	border: 5px solid #4d074f;
+}
+  
+div.galerija img {
+	width: 400px;
+	height: 200px;
+}
+  
+span.opis {
+	padding:140px;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: justify;
+	color: purple;
+}
+
+span.linkovi a:link, a:visited {
+	color: hotpink;
+	background-color: aqua;
+  	padding: 5px;
+	margin-right: 2px;
+	text-align: justify;
+	text-decoration: none;
+	text-emphasis-style: none;
+  	display: inline-block;
+	font-size: 1.2em;
+
+}
+
+span.linkovi a:hover {
+	color: white;
+	text-decoration: underline;
+	text-emphasis-style: filled double-circle;
+	font-size: 1.2em;
+	font: weight;
+	cursor:help;
+}
+  
+span.linkovi a:active {
+	color: black;
+	text-decoration: underline;
+	font-size: 1.2em;
+	font: weight;
+}
+
+
+span.slike img {
+	width: 300px;
+	height: 220px;
+}
+
+span.slike img:hover {
+	opacity: 0.2;
+}

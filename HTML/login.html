@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Turistička agencija "Roda Travel"</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <style>
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 25%;
+            font-size: 16px;
+            color: #1E90FF;
+            background-color: white;
+            border: 2px solid #1E90FF;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .button:hover {
+            background-color: #1E90FF;
+            color: white;
+        }
+        /* Dodajte stilove za animaciju naslova */
+        .naslov {
+            text-align: center;
+            font-size: 2.5em;
+            margin-top: 3s0px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        // Provera raspona
+        function myFunction() {
+            let text = "Value OK";
+            if (document.getElementById("id1").validity.rangeOverflow) {
+                text = "Value too large";
+            } else if(document.getElementById("id1").validity.rangeUnderflow){
+                text = "Value too small";
+            } else if(document.getElementById("id1").validity.valueMissing){
+                text = "You didn't enter a number rating";
+            }
+            document.getElementById("demo").innerHTML = text;
+        }
+
+        function initialize() {
+            var nameInput = document.getElementById("id2");
+            nameInput.oninvalid = invalidName;
+            nameInput.oninput = invalidName;
+
+            var preporuka = document.getElementById("id3");
+            preporuka.oninvalid = LosaPreporuka;
+            preporuka.oninput = LosaPreporuka;
+
+            var pol = document.getElementById("id4");
+            pol.oninvalid = nemaPol;
+            pol.oninput = nemaPol;
+
+            var rodjendan = document.getElementById("id5");
+            rodjendan.oninvalid = rodjendanFali;
+            rodjendan.oninput = rodjendanFali;
+        }
+
+        function LosaPreporuka() {
+            this.setCustomValidity("");
+            if (this.validity.valueMissing) {
+                this.setCustomValidity("Text is missing");
+            }
+        }
+
+        function invalidName() {
+            this.setCustomValidity("");
+            if (this.validity.valueMissing) {
+                this.setCustomValidity("Enter your opinion");
+            }
+        }
+
+        // Provera email-a
+        function validacijaEmail(unetEmail) {
+            var naZnaku = unetEmail.indexOf("@");
+            if (naZnaku < 1) {
+                return false;
+            }
+
+            var tacka = unetEmail.indexOf(".");
+            if (tacka <= naZnaku + 2) {
+                return false;
+            }
+
+            if (tacka == unetEmail.length - 1) {
+                return false;
+            }
+
+            return true;
+        }
+
+        function proveriEmail(unetEmail) {
+            var rezultat = validacijaEmail(unetEmail);
+
+            if (rezultat) {
+                alert("Valid Email");
+            } else {
+                alert("Invalid Email");
+            }
+        }
+
+        // Provera lozinke
+        function validacijaSifre() {
+            let text1 = "";
+            let text2 = "";
+            var p = document.getElementById('sifra').value;
+
+            if (p.length < 4 || p.length > 10) {
+                text1 = "Your password must be between 4 and 10 characters long";
+            }
+            if (p.search(/[0-9]/) < 0) {
+                text2 = "Your password must contain at least one digit";
+            }
+
+            document.getElementById("greska1").innerHTML = text1;
+            document.getElementById("greska2").innerHTML = text2;
+
+            return text1 === "" && text2 === "";
+        }
+
+        // Dugme Open
+        function otvori() {
+            const el = document.getElementById("form");
+            el.style.display = 'block';
+        }
+
+        // Sprečavanje osvežavanja stranice ako šifra nije validna
+        function onSubmitForm(event) {
+            if (!validacijaSifre()) {
+                event.preventDefault();
+            }
+        }
+
+        function prikazivanje(id) {
+        var paragraph = document.getElementById(id);
+        if (paragraph.style.display === "none" || paragraph.style.display === "") {
+            paragraph.style.display = "block";
+        } else {
+            paragraph.style.display = "none";
+        }
+    }
+
+    // JavaScript za inicijalizaciju naslova sa animacijom
+    document.addEventListener('DOMContentLoaded', function() {
+        const nasl = document.querySelector(".naslov");
+        const n = nasl.textContent;
+        const poluNaslov = n.split("");
+        nasl.textContent = "";
+        for(let i = 0; i < poluNaslov.length; i++){
+            nasl.innerHTML += "<span>" + poluNaslov[i] + "</span>";
+        }
+
+        let char = 0;
+        let timer = setInterval(kucaj, 50);
+
+        function kucaj() {
+            const span = nasl.querySelectorAll('span')[char];
+            span.classList.add('fade');
+            char++;
+            if(char === poluNaslov.length){
+                gotov();
+                return;
+            }
+        }
+
+        function gotov() {
+            clearInterval(timer);
+            timer = null;
+        }
+    });
+    </script>
+</head>
+<body onload="initialize()">
+    <div class="meni">
+        <a href="onama.html"><span>O nama</span></a>
+        <a href="letovanja.html"><span>Letovanja</span></a>
+        <a href="zimovanja.html"><span>Zimovanja</span></a>
+        <a href="prijava.html"><span>Prijava</span></a>
+        <a href="kontakt.html"><span>Kontakt</span></a>
+        <a href="login.html"><span>Log in</span></a>
+    </div>
+    <h1 class="naslov">Log in</h1>
+    <div id="login">
+        <form onsubmit="onSubmitForm(event)">
+            <fieldset>
+                <legend>Imate nalog na našem sajtu? Ulogujte se:</legend>
+                <br>
+                Gmail: <span><input type="text" id="emailLogin" name="gmail" onchange="proveriEmail(this.value)" required></span> <br>
+                <br>
+                Lozinka: <span><input type="password" id="sifraLogin" onchange="validacijaSifre()" required></span> <br>
+                <br>
+                <span class="dugme"><input type="submit" value="Prijavite se"></span>
+            </fieldset>
+        </form>
+    </div>
+    <div id="register">
+        <form onsubmit="onSubmitForm(event)">
+            <fieldset>
+                <legend>Još uvek se niste registrovali na naš sajt? Uradite to sada!</legend>
+                <br>
+                Ime i prezime
+                <span><input type="text" id="imePrezime" name="ime_prezime" required></span> <br><br>
+                Godina rođenja:
+                <span><input type="number" id="id1" name="godina_rodjenja" min="1900" max="2024" required onchange="myFunction()"></span>
+                <br>
+                Pol: <br>
+                <input type="radio" id="id4" name="pol" value="z"> Ženski<br>
+                <input type="radio" id="id4" name="pol" value="m" checked> Muški <br><br>
+                Gmail: <br> 
+                <span><input type="text" id="emailRegister" name="gmail" required onchange="proveriEmail(this.value)"></span> <br><br>
+                Lozinka: <br>
+                <span><input type="password" id="sifra" name="lozinka" required onchange="validacijaSifre()"></span> <br><br>
+                <div id="greska1" style="color: red;"></div>
+                <div id="greska2" style="color: red;"></div>
+                Potvrdite lozinku: <br>
+                <span><input type="password" id="sifraConfirm" name="lozinka_confirm" required></span> <br><br>
+                <br>
+                <span class="dugme"><input type="submit" value="Registrujte se"></span>
+            </fieldset>
+        </form>
+    </div>    
+</body>
+</html>
